@@ -18,18 +18,13 @@ import { GetBooksFilterDto } from './dto/get-books-filter.dto';
 export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
-  // @Get()
-  // findAll(@Query() filterDto: GetBooksFilterDto): Promise<BookDto[]> {
-  //   if (Object.keys(filterDto).length) {
-  //     return this.booksService.findBookByFilter(filterDto);
-  //   } else {
-  //     return this.booksService.findAll();
-  //   }
-  // }
-
   @Get()
-  findAll(): Promise<BookDto[]> {
-    return this.booksService.findAll();
+  findAll(@Query() filterDto: GetBooksFilterDto): Promise<BookDto[]> {
+    if (Object.keys(filterDto).length) {
+      return this.booksService.findBookByFilter(filterDto);
+    } else {
+      return this.booksService.findAll();
+    }
   }
 
   @Get(':id')

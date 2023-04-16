@@ -25,7 +25,6 @@ export class BooksService {
 
   async findBookByFilter(filterDto: GetBooksFilterDto): Promise<BookDto[]> {
     const { title, author } = filterDto;
-
     let books = await this.findAll();
 
     if (title) {
@@ -38,16 +37,15 @@ export class BooksService {
     }
 
     if (author) {
-      if (author) {
-        books = books.filter((book) => {
-          if (book.author.includes(author)) {
-            return true;
-          }
-          return false;
-        });
-      }
-      return books;
+      books = books.filter((book) => {
+        if (book.author.includes(author)) {
+          return true;
+        }
+        return false;
+      });
     }
+
+    return books;
   }
 
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<BookDto> {

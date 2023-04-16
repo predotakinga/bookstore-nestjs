@@ -1,9 +1,11 @@
-import { IsString } from 'class-validator';
+import { IsOptional, IsString } from 'class-validator';
 
 export class GetBooksFilterDto {
-  // @IsString()
+  @IsOptional()
+  @IsString()
   title?: string;
 
-  // @IsString()
+  @IsOptional()
+  @IsString()
   author?: string;
 }

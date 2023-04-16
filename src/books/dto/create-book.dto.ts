@@ -15,7 +15,6 @@ export class CreateBookDto {
   @IsDateString()
   readonly publishedDate: Date;
 
-  // Potencjalny błąd
   @IsArray()
   readonly images: IPhotosInput[];
 }

@@ -32,17 +32,28 @@
 $ npm install
 ```
 
+```bash
+$ npx prisma generate
+```
+
+Make sure, that you added your own .env file.
+
 ## Running the app
 
 ```bash
-# development
-$ npm run start
+$ docker build .
+```
 
-# watch mode
+```bash
+$ docker-compose up -d
+```
+
+```bash
+$ npx prisma migrate dev
+```
+
+```bash
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
 ## Test
@@ -50,13 +61,13 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
+
+## Every GET requests are public
+
+When you want to get books by filter, you can just:
+http://{host}:{port}/books?author={author}
+or use other fields to filter.
 
 ## Support
 

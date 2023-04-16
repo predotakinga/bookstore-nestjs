@@ -36,8 +36,8 @@ describe('BooksController', () => {
         },
       ],
     };
-    expect(controller.findAll()).toHaveBeenCalled;
-    expect(controller.findAll()).toEqual(mockBook);
+    expect(controller.findAll({})).toHaveBeenCalled;
+    expect(controller.findAll({})).toEqual(mockBook);
   });
 
   it('should return book by id', () => {
